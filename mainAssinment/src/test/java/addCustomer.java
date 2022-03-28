@@ -1,15 +1,15 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class addCustomer {
     @Test(priority = 1)
-    public void AddCustomer() throws NoSuchElementException, InterruptedException {
+    public void AddCustomer() throws NoSuchElementException, InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepanshusingh8\\Downloads\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -28,6 +28,8 @@ public class addCustomer {
         lname.sendKeys("Atluri");
         postcode.sendKeys("123456");
         AddcustButton.click();
+        //File SrcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+       // FileUtils.copyFile(SrcFile,new File(".//screenshot/addcustomer.png"));
 
 
     }

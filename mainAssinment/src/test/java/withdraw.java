@@ -41,7 +41,7 @@ public class withdraw {
 //            System.out.println("text not present");
 //        }
         File SrcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(SrcFile,new File(".//screenshot/screen2.png"));
+        FileUtils.copyFile(SrcFile,new File(".//screenshot/withdraw.png"));
 
     }
 

@@ -1,19 +1,20 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.By.xpath;
-public class open_account extends addCustomer{
+public class open_account {
     @Test(priority = 2)
-    public void OpenAccount() throws NoSuchElementException, InterruptedException {
+    public void OpenAccount() throws NoSuchElementException, InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepanshusingh8\\Downloads\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -28,8 +29,10 @@ public class open_account extends addCustomer{
        currency.selectByVisibleText("Rupee");
        WebElement Process = driver.findElement(By.xpath("//*[@type='submit']"));
        Process.click();
-
-
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //Thread.sleep (3000);
+//        File SrcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//        FileUtils.copyFile(SrcFile,new File(".//screenshot/openAccount.png"));
 
 
 
