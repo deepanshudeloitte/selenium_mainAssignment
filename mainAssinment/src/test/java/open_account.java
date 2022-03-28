@@ -11,8 +11,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.By.xpath;
-public class open_account {
-    @Test(priority = 0)
+public class open_account extends addCustomer{
+    @Test(priority = 2)
     public void OpenAccount() throws NoSuchElementException, InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepanshusingh8\\Downloads\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -28,6 +28,7 @@ public class open_account {
        currency.selectByVisibleText("Rupee");
        WebElement Process = driver.findElement(By.xpath("//*[@type='submit']"));
        Process.click();
+
 
 
 

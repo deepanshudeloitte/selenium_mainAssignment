@@ -1,19 +1,20 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.By.xpath;
 public class deposit {
-    @Test(priority = 0)
-    public void deposit() throws NoSuchElementException, InterruptedException {
+    @Test(priority = 3)
+    public void deposit() throws NoSuchElementException, InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepanshusingh8\\Downloads\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -33,6 +34,8 @@ public class deposit {
         WebElement AmntDepo= driver.findElement(By.xpath("//*[@class='btn btn-default']"));
         AmntDepo.click();
 
+        File SrcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(SrcFile,new File(".//screenshot/deposit.png"));
 
     }
 }
