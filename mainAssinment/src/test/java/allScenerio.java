@@ -12,12 +12,14 @@ import java.util.concurrent.TimeUnit;
 public  class allScenerio{
     public  static WebDriver driver;
     @Test(priority = 1)
-    public void AddCustomer() throws NoSuchElementException, InterruptedException, IOException {
+    public void allscenerio() throws NoSuchElementException, InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepanshusingh8\\Downloads\\chromedriver.exe");
          driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+         //****** add customer and login ************//
 
         WebElement ManagerLoginbutton = driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div[1]/div[2]/button"));
         ManagerLoginbutton.click();
@@ -33,8 +35,10 @@ public  class allScenerio{
         AddcustButton.click();
         driver.switchTo().alert().accept();
 
+        //****** open account  and login ************//
         WebElement OpenAccount = driver.findElement(By.xpath("//*[@ng-class='btnClass2']"));
         OpenAccount.click();
+
         Select uname= new Select(driver.findElement(By.xpath("//*[@name='userSelect']")));
         uname.selectByVisibleText("Harry Potter");
         Select currency = new Select(driver.findElement(By.xpath("//*[@name='currency']")));
@@ -45,6 +49,8 @@ public  class allScenerio{
 
         WebElement home= driver.findElement(By.xpath("/html/body/div/div/div[1]/button[1]"));
         home.click();
+
+        //****** deposit money  for the user ************//
 
         WebElement custLogin = driver.findElement(By.xpath("//*[@ng-click='customer()']"));
         custLogin.click();
@@ -58,13 +64,15 @@ public  class allScenerio{
         AmntToDepo.sendKeys("1000");
         WebElement AmntDepo= driver.findElement(By.xpath("//*[@class='btn btn-default']"));
         AmntDepo.click();
-
+        //****** taking the screen shot for the deposit money ************//
         File SrcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(SrcFile,new File(".//screenshot/depositmain.png"));
 
         WebElement home2= driver.findElement(By.xpath("/html/body/div/div/div[1]/button[1]"));
         home2.click();
-             //*********withdraw the amount
+
+
+             //*********withdraw the amount******//
         WebElement custLogin1 = driver.findElement(By.xpath("//*[@ng-click='customer()']"));
         custLogin1.click();
         Select uname3= new Select(driver.findElement(By.xpath("//*[@id='userSelect']")));
@@ -77,6 +85,7 @@ public  class allScenerio{
         AmntToWithdraw.sendKeys("1000");
         WebElement AmntWithdraw= driver.findElement(By.xpath("//*[@class='btn btn-default']"));
         AmntWithdraw.click();
+        //****** taking the screen shot for the withdraw money ************//
         File SrcFile2=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(SrcFile2,new File(".//screenshot/withdrawmain.png"));
 
