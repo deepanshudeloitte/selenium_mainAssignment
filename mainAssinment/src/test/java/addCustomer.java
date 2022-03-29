@@ -28,9 +28,15 @@ public class addCustomer {
         lname.sendKeys("Atluri");
         postcode.sendKeys("123456");
         AddcustButton.click();
-        //File SrcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-       // FileUtils.copyFile(SrcFile,new File(".//screenshot/addcustomer.png"));
+        try {
+            File SrcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(SrcFile, new File(".//screenshot/addcustomer.png"));
+        }
+        catch(Exception e){
 
+        }
+       //open_account o=new open_account();
+       //o.OpenAccount();
 
     }
 

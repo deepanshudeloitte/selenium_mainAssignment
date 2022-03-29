@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.By.xpath;
-public class open_account {
+public class open_account  {
     @Test(priority = 2)
     public void OpenAccount() throws NoSuchElementException, InterruptedException, IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\deepanshusingh8\\Downloads\\chromedriver.exe");
@@ -29,7 +29,7 @@ public class open_account {
        currency.selectByVisibleText("Rupee");
        WebElement Process = driver.findElement(By.xpath("//*[@type='submit']"));
        Process.click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //Thread.sleep (3000);
 //        File SrcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 //        FileUtils.copyFile(SrcFile,new File(".//screenshot/openAccount.png"));
